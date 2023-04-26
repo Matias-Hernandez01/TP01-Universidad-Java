@@ -1,5 +1,4 @@
 package TrabajoPractico;
-
 import java.util.Scanner;
 
 public class TrabajoPractico {
@@ -18,7 +17,10 @@ public class TrabajoPractico {
          opcion = sc.nextInt();
 
 				if(opcion > 6){
-					System.out.println("La opción ingresada es incorrecta");
+					System.out.println("**************************************************************************");
+					System.out.println("La opcion ingresada es incorrecta, porfavor ingrese una opcion disponible");
+					System.out.println("**************************************************************************");
+					main( null);
 				}
 
         switch(opcion) {
@@ -67,31 +69,35 @@ public class TrabajoPractico {
     	System.out.println("------------------");
     	opcionMenu2 = sc.nextInt();
 
-    	if(opcionMenu2 == 1) {
-    		System.out.println("Para el HDD: " + caso);
-    		System.out.println("Con la capacidad: " + capacidadString);
-    		calcularBackUp(1, caso, capacidadEnMB, capacidadString);
-    	}
-    	if(opcionMenu2 == 2) {
-    		System.out.println("Para el HDD: " + caso);
-    		System.out.println("Con la capacidad: " + capacidadString);
-    		calcularBackUp(2, caso, capacidadEnMB, capacidadString);
-    	}
-    	if(opcionMenu2 == 3) {
-    		System.out.println("Para el HDD: " + caso);
-    		System.out.println("Con la capacidad: " + capacidadString);
-    		calcularBackUp(3, caso, capacidadEnMB, capacidadString);
-    	}
+			switch(opcionMenu2){
+				case 1 :
+				System.out.println("Para el HDD: " + caso);
+				System.out.println("Con la capacidad: " + capacidadString);
+				calcularBackUp(1, caso, capacidadEnMB, capacidadString);
+				break;
+				case 2: 
+				System.out.println("Para el HDD: " + caso);
+				System.out.println("Con la capacidad: " + capacidadString);
+				calcularBackUp(2, caso, capacidadEnMB, capacidadString);
+				break;
+				case 3: 
+				System.out.println("Para el HDD: " + caso);
+				System.out.println("Con la capacidad: " + capacidadString);
+				calcularBackUp(3, caso, capacidadEnMB, capacidadString);
+				break;
+				default:
+					System.out.println("La opcion ingresada es incorrecta");
+					menuDos((caso), capacidadString, capacidadEnMB); 
+			}
     }
-    
     public static void calcularBackUp (int elementBackUp, String disco, int capacidadEnMb, String capacidadEnString) {
     	switch(elementBackUp) {
     	case 1 : 
-    		int calculo = capacidadEnMb / 700;
+    		int calculo = (capacidadEnMb / 700);
     		System.out.println("La cantidad de CDs para el BackUp es: " + calculo +  " CDs");
     		break;
     	case 2:
-    		int calculoCase2 = capacidadEnMb / 47000;
+    		int calculoCase2 = (capacidadEnMb / 47000);
     		System.out.println("La cantidad de DVDs para el BackUp es: " + calculoCase2 + " DVDs");
     		break;
     	case 3:
